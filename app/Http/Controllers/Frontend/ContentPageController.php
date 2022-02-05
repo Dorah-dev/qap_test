@@ -123,4 +123,15 @@ class ContentPageController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+    }
+    //Edited by Dorah Phaleng Requirement 3
+
+    public function myFunction()
+{
+   $categories = Categories::all()->take(5)->get();
+
+   return view('your.view')->with('categories', $categories);
+}
+
+    //End
 }
