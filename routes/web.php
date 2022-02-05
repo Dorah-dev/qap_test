@@ -122,4 +122,32 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
     Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
     Route::post('frontend/profile/password', 'ProfileController@password')->name('profile.password');
+    //Edited by Dorah Phaleng requirement 1
+    Route::get('products/index-paging', 'ProductsController@indexPaging');
+
+    //Edited by Dorah Phaleng requirement 3
+    Route::get('/category/{id}', 'PagesController@showCategory')->name('showCategory');
+
+    //End
+
+    //End 
+    //Edited by Dorah Phaleng requirement 2
+    Route::get('/products/{product}', 'ProductsController@show');
+
+    //End
+
+    //Edited by Dorah Phaleng requirement 4 optional
+    Route::get('/', [ProductController::class, 'index']);  
+
+    Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+
+    Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+
+    Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+
+    Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
+
+    //End
+});
+
 });
