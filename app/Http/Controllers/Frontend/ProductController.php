@@ -86,6 +86,15 @@ class ProductController extends Controller
 
         return redirect()->route('frontend.products.index');
     }
+    //Edited by Dorah Phaleng
+    public function indexPaging()
+{
+    $products = Product::paginate(5);
+
+    return view('products.index-paging')->with('products', $products);
+}
+//End edited by Dorah Phaleng
+
 
     public function show(Product $product)
     {
