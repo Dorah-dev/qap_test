@@ -148,6 +148,5 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
     //End
-});
 
 });
