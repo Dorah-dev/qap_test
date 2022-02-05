@@ -133,6 +133,15 @@ class ProductController extends Controller
 
         return view('admin.products.edit', compact('categories', 'product', 'tags'));
     }
+    }
+    //Edited by Dorah Phaleng
+    public function indexPaging()
+{
+    $products = Product::paginate(5);
+
+    return view('products.index-paging')->with('products', $products);
+}
+//Edited by Dorah Phaleng until here
 
     public function update(UpdateProductRequest $request, Product $product)
     {
@@ -189,4 +198,14 @@ class ProductController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+    //Edited by Dorah Phaleng requirement 2
+    public function show(Product $product)
+{
+    // Laravel will fetch the correct product and return it in the variable $product
+    return view('product-page-here', compact('product'));
+}
+
+    //End
+}
+
 }
